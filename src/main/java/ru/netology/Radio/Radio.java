@@ -22,6 +22,16 @@ public class Radio {
         currentRadioStation = newCurrentRadioStation;
     }
 
+    protected void setCurrentVolume(int newCurrentVolume) {
+        if (newCurrentVolume < 0) {
+            return;
+        }
+        if (newCurrentVolume > 10) {
+            return;
+        }
+        currentVolume = newCurrentVolume;
+    }
+
 
     public void next() {
         if (currentRadioStation < 9) {

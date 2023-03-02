@@ -70,6 +70,32 @@ public class RadioTest {
 
 
     @Test
+    public void setVolumeLessMin() {
+        Radio radio = new Radio();
+
+        radio.setCurrentVolume(-1);
+
+        int expected = 0;
+        int actual = radio.getVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void setVolumeAboveMax() {
+        Radio radio = new Radio();
+
+        radio.setCurrentVolume(11);
+
+        int expected = 0;
+        int actual = radio.getVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+
+    @Test
     public void pushPrevWhenPlayStation0() {
         Radio radio = new Radio();
 
@@ -177,16 +203,7 @@ public class RadioTest {
     public void increaseVolumeWhenVolumeIsMax() {
         Radio radio = new Radio();
 
-        radio.increaseVolume();
-        radio.increaseVolume();
-        radio.increaseVolume();
-        radio.increaseVolume();
-        radio.increaseVolume();
-        radio.increaseVolume();
-        radio.increaseVolume();
-        radio.increaseVolume();
-        radio.increaseVolume();
-        radio.increaseVolume();
+        radio.setCurrentVolume(10);
         radio.increaseVolume();
 
         int expected = 10;
@@ -199,15 +216,7 @@ public class RadioTest {
     public void reduceVolumeWhenVolumeIsMax() {
         Radio radio = new Radio();
 
-        radio.increaseVolume();
-        radio.increaseVolume();
-        radio.increaseVolume();
-        radio.increaseVolume();
-        radio.increaseVolume();
-        radio.increaseVolume();
-        radio.increaseVolume();
-        radio.increaseVolume();
-        radio.increaseVolume();
+        radio.setCurrentVolume(10);
         radio.increaseVolume();
 
         radio.reduceVolume();
