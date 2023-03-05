@@ -56,14 +56,14 @@ public class Radio {
         if (currentRadioStation < maxRadioStation) {
             currentRadioStation = currentRadioStation + 1;
         }
-        else currentRadioStation = 0;
+        else {currentRadioStation = 0;}
     }
 
     public void prev() {
         if (currentRadioStation > 0) {
             currentRadioStation = currentRadioStation - 1;
         }
-        else currentRadioStation = maxRadioStation;
+        else {currentRadioStation = maxRadioStation;}
     }
 
     public void increaseVolume() {
